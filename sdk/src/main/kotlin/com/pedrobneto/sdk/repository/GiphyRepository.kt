@@ -6,9 +6,6 @@ import com.pedrobneto.sdk.entities.Response
 import com.pedrobneto.sdk.services.FileService
 import com.squareup.moshi.Moshi
 import io.reactivex.Single
-import java.io.File
-import java.io.FileInputStream
-import java.io.ObjectInputStream
 import org.koin.core.KoinComponent
 import org.koin.core.get
 
@@ -19,35 +16,6 @@ class GiphyRepository(private val api: GiphyApi, private val fileService: FileSe
 
     private val updatedGifs = mutableListOf<Response.Gif>()
 
-    private fun getGifsDirPath(context: Context): String {
-        var path = context.getExternalFilesDir(null)?.absolutePath ?: ""
-        path += "${File.separator}/Giphy App/favorite_gifs${File.separator}"
-
-        return path
-    }
-
-    private fun getLocalGifs(context: Context): List<Response.Gif> {
-        val gifsDir = File(getGifsDirPath(context))
-        val gifList = mutableListOf<Response.Gif>()
-
-        if (gifsDir.exists()) {
-            gifsDir.listFiles()?.forEach { file ->
-                val objectInputStream = ObjectInputStream(FileInputStream(file))
-                val json = objectInputStream.readObject() as? String
-                objectInputStream.close()
-
-                json?.let {
-                    get<Moshi>()
-                        .adapter(Response.Gif::class.java)
-                        .fromJson(it)
-                        ?.run(gifList::add)
-                }
-            }
-        }
-
-        return gifList
-    }
-
     fun fetchGifs(context: Context, searchText: String, page: Int): Single<Response.GiphyData> {
         val response = if (searchText.isEmpty()) {
             api.fetchTrendingGifs(GIF_LIMIT, page)
@@ -55,7 +23,7 @@ class GiphyRepository(private val api: GiphyApi, private val fileService: FileSe
             api.searchGifs(GIF_LIMIT, page, searchText)
         }
 
-        val favoriteGifs = getLocalGifs(context)
+        val favoriteGifs = fileService.getLocalGifs(context)
         return response.map { giphyData ->
             giphyData.gifList.forEach { gif ->
                 gif.isFavorite = favoriteGifs.find { it.id == gif.id } != null
@@ -86,7 +54,7 @@ class GiphyRepository(private val api: GiphyApi, private val fileService: FileSe
         }
     }
 
-    fun fetchFavoriteGifs(context: Context) = Response.GiphyData(getLocalGifs(context))
+    fun fetchFavoriteGifs(context: Context) = Response.GiphyData(fileService.getLocalGifs(context))
 
     fun fetchUpdatedGifs(): List<Response.Gif> = updatedGifs
 
