@@ -1,0 +1,39 @@
+apply {
+    plugin "com.android.application"
+    plugin "kotlin-android"
+    plugin "kotlin-kapt"
+}
+
+android {
+    defaultConfig {
+        applicationId 'com.pedrobneto.giphyapp'
+        testInstrumentationRunner 'com.pedrobneto.giphyapp.TestRunner'
+        vectorDrawables.useSupportLibrary = true
+        resConfigs 'pt'
+    }
+}
+
+dependencies {
+    implementation project(":sdk")
+
+    implementation "androidx.appcompat:appcompat:${versions.appCompat}"
+    implementation "com.google.android.material:material:${versions.materialComponents}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
+
+    implementation "com.facebook.shimmer:shimmer:${versions.shimmer}"
+    implementation "br.com.arch.toolkit:delegate:${versions.archToolkit}"
+
+    kapt "com.github.bumptech.glide:compiler:${versions.glide}"
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    implementation("com.github.bumptech.glide:recyclerview-integration:${versions.glide}") {
+        transitive = false
+    }
+
+    debugImplementation "androidx.fragment:fragment-testing:${versions.androidTest.fragment}"
+
+    androidTestImplementation "androidx.arch.core:core-testing:${versions.test.arch}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.androidTest.espresso}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.androidTest.jUnit}"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:${versions.androidTest.uiautomator}"
+    androidTestImplementation "io.mockk:mockk-android:${versions.test.mockk}"
+}

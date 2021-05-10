@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/GifCard"
+    android:layout_width="@dimen/app_gif_size"
+    android:layout_height="@dimen/app_gif_card_height"
+    android:paddingTop="@dimen/app_default_spacing">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/gif_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/title_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/gif_image_view"
+        app:layout_constraintEnd_toEndOf="@id/gif_image_view"
+        app:layout_constraintStart_toStartOf="@id/gif_image_view"
+        app:layout_constraintTop_toTopOf="@id/gif_image_view">
+
+        <View
+            android:id="@+id/placeholder_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_gif_placeholder" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_label"
+        style="@style/Text.Caption"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+        android:paddingHorizontal="@dimen/app_small_spacing"
+        app:layout_constraintBottom_toBottomOf="@id/favorite_button"
+        app:layout_constraintEnd_toStartOf="@id/favorite_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/favorite_button"
+        tools:text="Some random gif dasdasdasdasdadasdasdasdasdasd" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/favorite_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@drawable/background_ripple_icon"
+        android:padding="@dimen/app_favorite_button_vertical_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_favorite_off" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

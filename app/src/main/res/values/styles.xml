@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--region View-->
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="ToolbarIcon">
+        <item name="android:tint">@android:color/black</item>
+    </style>
+
+    <style name="TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="RecyclerView" />
+
+    <style name="MessageImageView" />
+
+    <style name="GifCard">
+        <item name="android:background">@drawable/background_gif</item>
+        <item name="android:elevation">@dimen/app_gif_card_elevation</item>
+        <item name="android:clipChildren">true</item>
+    </style>
+    <!--endregion-->
+
+    <!--region Text-->
+    <style name="Text" parent="Widget.AppCompat.TextView" />
+
+    <style name="Text.Body">
+        <item name="android:textSize">@dimen/app_text_size_body</item>
+    </style>
+
+    <style name="Text.Caption">
+        <item name="android:textSize">@dimen/app_text_size_caption</item>
+    </style>
+    <!--endregion-->
+
+</resources>

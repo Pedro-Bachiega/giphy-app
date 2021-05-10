@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--region Empty-->
+    <dimen name="app_empty_list_vertical_spacing">@dimen/app_large_spacing</dimen>
+    <!--endregion-->
+
+    <!--region Gif-->
+    <dimen name="app_gif_spacing">@dimen/app_default_spacing</dimen>
+    <dimen name="app_gif_size">256dp</dimen>
+    <dimen name="app_gif_card_height">296dp</dimen>
+    <dimen name="app_gif_card_elevation">8dp</dimen>
+    <dimen name="app_gif_radius">12dp</dimen>
+
+    <dimen name="app_gif_card_displacement">@dimen/app_default_spacing</dimen>
+    <!--endregion-->
+
+    <!--region Favorite-->
+    <dimen name="app_favorite_button_vertical_spacing">@dimen/app_small_spacing</dimen>
+    <dimen name="app_favorite_button_total_space">40dp</dimen>
+    <!--endregion-->
+
+    <!--region Toolbar-->
+    <dimen name="app_toolbar_icon_size">24dp</dimen>
+    <dimen name="app_toolbar_icon_spacing">@dimen/app_default_spacing</dimen>
+    <dimen name="app_toolbar_icon_padding">@dimen/app_small_spacing</dimen>
+    <!--endregion-->
+
+    <!--region Spacing-->
+    <dimen name="app_small_spacing">8dp</dimen>
+    <dimen name="app_default_spacing">16dp</dimen>
+    <dimen name="app_large_spacing">24dp</dimen>
+    <!--endregion-->
+
+    <!--region Text size-->
+    <dimen name="app_text_size_body">14sp</dimen>
+    <dimen name="app_text_size_caption">11sp</dimen>
+    <!--endregion-->
+
+</resources>

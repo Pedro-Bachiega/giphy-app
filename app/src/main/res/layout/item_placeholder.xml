@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/app_gif_size"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/placeholder_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_gif_card_height"
+        android:background="@drawable/background_item_placeholder" />
+
+</com.facebook.shimmer.ShimmerFrameLayout>

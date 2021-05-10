@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Giphy App</string>
+
+    <string name="app_trending">Trending</string>
+    <string name="app_favorites">Favorites</string>
+    <string name="app_search_gifs">Search Gifs</string>
+
+    <string name="app_empty_list">No gifs could be found.\nPlease try widening your search criteria.</string>
+    <string name="app_empty_favorites">No gifs could be found.\nStart by selecting a few favorites.</string>
+
+    <string name="app_list_error">An error occurred fetching the latest gifs.</string>
+</resources>

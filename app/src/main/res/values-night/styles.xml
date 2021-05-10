@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--region View-->
+    <style name="Toolbar">
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="ToolbarIcon">
+        <item name="android:tint">@android:color/white</item>
+    </style>
+
+    <style name="TabLayout">
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="RecyclerView">
+        <item name="android:background">@color/white_10</item>
+    </style>
+
+    <style name="MessageImageView">
+        <item name="android:alpha">0.8</item>
+    </style>
+
+    <style name="GifCard">
+        <item name="android:background">@drawable/background_gif_night</item>
+        <item name="android:elevation">@dimen/app_gif_card_elevation</item>
+        <item name="android:clipChildren">true</item>
+    </style>
+    <!--endregion-->
+
+</resources>
